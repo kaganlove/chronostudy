@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------
+   ChronoStudy Global Theme
+   ------------------------------ */
+:root {
+  /* Core Colors */
+  --primary: #2D2A5A;        /* Deep Indigo */
+  --accent1: #33D4C6;        /* Aqua Blue */
+  --accent2: #FF6F5E;        /* Warm Coral */
+  --background: #F8F8F2;     /* Soft Ivory */
+  --textPrimary: #2D2A5A;
+  --textSecondary: #4A4A4A;
+
+  /* UI Enhancements */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--textSecondary);
+  @apply antialiased;
+}
+
+/* ------------------------------
+   Reusable Utility Classes
+   ------------------------------ */
+
+/* Card Containers */
+.card,
+.brand-glass {
+  @apply rounded-2xl p-6 shadow-lg backdrop-blur-md transition;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition;
+  background: var(--accent1);
+  color: var(--primary);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-accent2 {
+  background: var(--accent2);
+  color: white;
+}
+
+.btn-accent2:hover {
+  background: #e86455;
+}
+
+/* Input Fields */
+.input {
+  @apply border rounded-xl px-3 py-2 w-full focus:ring-2 focus:outline-none;
+  border-color: rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--accent1);
+}
+
+/* Labels */
+.label {
+  @apply text-sm font-medium;
+  color: var(--textPrimary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary);
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-xl font-semibold;
+}
+
+p {
+  @apply leading-relaxed;
+  color: var(--textSecondary);
+}
+
+/* Shadows */
+.shadow-glass {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient Helpers */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--accent1), var(--primary));
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input {
+  transition: all 0.25s ease;
+}
+
+.outward-curve {
+  clip-path: path("M0,0 Q20,50 0,100 L100,100 L100,0 Z");
+}

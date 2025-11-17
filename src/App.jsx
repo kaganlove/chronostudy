@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { LogOut, Clock, LayoutDashboard, CalendarDays, BookOpen } from "lucide-react";
+import {
+  LogOut,
+  Clock,
+  LayoutDashboard,
+  CalendarDays,
+  BookOpen,
+} from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
 
 import { signIn, signOutUser, watchAuth, db } from "./lib/firebase";
@@ -11,7 +17,7 @@ import CalendarPage from "./Pages/Calendar";
 import SubjectsPage from "./Pages/Subjects";
 import ChronoLogo from "./assets/chronostudy-logo.png";
 
-// ✅ New import for shared state context
+// shared state context
 import { SubjectProvider } from "./context/SubjectContext";
 
 export default function App() {
@@ -35,9 +41,8 @@ export default function App() {
   if (loading) return <div className="p-8">Loading...</div>;
 
   return (
-    // ✅ Wrapped everything in SubjectProvider for shared subject selection
     <SubjectProvider>
-      <Router>
+      <Router basename="/chronostudy">
         <div className="min-h-screen bg-[#F8F8F2] text-[#4A4A4A] font-[Manrope]">
           {/* Header */}
           <header className="flex items-center justify-between bg-white/70 backdrop-blur-xl border-b border-white/30 px-8 py-4 shadow-sm">
@@ -48,7 +53,9 @@ export default function App() {
                   alt="ChronoStudy Logo"
                   className="w-8 h-8 object-contain"
                 />
-                <h1 className="text-xl font-bold text-[#2D2A5A]">ChronoStudy</h1>
+                <h1 className="text-xl font-bold text-[#2D2A5A]">
+                  ChronoStudy
+                </h1>
               </Link>
 
               <nav className="flex gap-4 text-sm">
